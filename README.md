@@ -1,4 +1,4 @@
-# DSpace Preservation Workflows
+# DataSpace Preservation Workflows
 
 This repository contains scripts and documentation for backing up objects from DataSpace into separate storage, utilizing DSpace export and Python-based BagIt packaging workflows.
 
