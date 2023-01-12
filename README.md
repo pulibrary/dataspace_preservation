@@ -21,9 +21,23 @@ This repository contains scripts and documentation for backing up objects from D
   pipenv shell
   ```
 
-## Instructions 
+## Instructions
 
-1. Run `list_arks.rb` to output a list of arks that can be used to create a manifest.
+1. Run `list_arks.rb` and supply a class year as a command line argument, to output a list of arks that can be used to create a manifest as follows:
+    ```bash 
+    ruby list_arks.rb 2022
+    ```
+    Where `2022` is an example value for class year.
+
+    You should see output something like the following: 
+    ```bash 
+    88435/dsp01pz50gw281
+    88435/dsp0173666467j
+    88435/dsp01pv63g040g
+    88435/dsp01s7526c61k
+    ...
+    ```
+
 1. Transfer the manifest to the appropriate DataSpace server.
 1. Create a directory on the server where your exports will be stored temporarily.
 1. Run the `export_from_dspace.sh` bash script with the manifest and exports directory as command line arguments, example:

@@ -9,17 +9,17 @@ require 'uri'
 
 require 'pry-byebug'
 
-HOST = 'https://dataspace-staging.princeton.edu/handle/88435/dsp019c67wm88m/browse?type=graduation&order=DESC&rpp=20&value=2015'
-HTML_TABLE_CSS_SELECTOR = 'html > body > main > div:nth-of-type(2) > div:nth-of-type(3) > table'
 
-def fetch_arks
-    response = Faraday.get(HOST.to_s)
+def fetch_arks(class_year)
+    host = "https://dataspace-staging.princeton.edu/handle/88435/dsp019c67wm88m/browse?type=graduation&order=DESC&rpp=20&value=#{class_year}"
+    html_table_css_selector = 'html > body > main > div:nth-of-type(2) > div:nth-of-type(3) > table'
+    response = Faraday.get(host.to_s)
     unless response.success?
         raise(ArgumentError,
               "Failed to receive a response from the DSpace URI: #{query_uri}")
     end
     response_document = Nokogiri::HTML.parse(response.body)
-    search_table = response_document.at_css(HTML_TABLE_CSS_SELECTOR)
+    search_table = response_document.at_css(html_table_css_selector)
 
     search_table_rows = search_table.css('tr')
     search_result_rows = search_table_rows[1..]
@@ -34,4 +34,5 @@ def fetch_arks
     end 
 end 
 
-fetch_arks
+class_year = ARGV[0].to_i
+fetch_arks(class_year)
