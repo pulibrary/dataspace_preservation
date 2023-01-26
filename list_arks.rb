@@ -10,8 +10,8 @@ require 'uri'
 require 'pry-byebug'
 
 
-def fetch_arks(class_year)
-    host = "https://dataspace-staging.princeton.edu/handle/88435/dsp019c67wm88m/browse?type=graduation&order=DESC&rpp=20&value=#{class_year}"
+def fetch_arks(class_year, host)
+    host = "#{host}/handle/88435/dsp019c67wm88m/browse?type=graduation&order=DESC&rpp=20&value=#{class_year}"
     html_table_css_selector = 'html > body > main > div:nth-of-type(2) > div:nth-of-type(3) > table'
     response = Faraday.get(host.to_s)
     unless response.success?
@@ -35,4 +35,5 @@ def fetch_arks(class_year)
 end 
 
 class_year = ARGV[0].to_i
-fetch_arks(class_year)
+host = ARGV[1] || "https://dataspace-staging.princeton.edu"
+fetch_arks(class_year, host)
