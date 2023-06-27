@@ -44,7 +44,13 @@ This repository contains scripts and documentation for backing up objects from D
     88435/dsp01w66346442
     ...
     ```
-1. Pipe the list_arks output to a manifest file
+1. Pipe the list_arks output to a manifest file, examples:
+   ```bash 
+   bundle exec ruby list_arks.rb -h https://dataspace-staging.princeton.edu -a ark:/88435/dsp01zw12z7787 > manifest
+   ```
+
+   or 
+
    ```bash 
    bundle exec ruby list_arks.rb -h https://dataspace-staging.princeton.edu -a ark:/88435/dsp01sf268516n -c 2019 > manifest
    ```
