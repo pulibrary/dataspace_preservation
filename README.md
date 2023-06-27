@@ -40,23 +40,23 @@ This repository contains scripts and documentation for backing up objects from D
     88435/dsp01s7526c61k
     ...
     ```
-1. once you have the correct year pipe the list_arks output to a manefest file (2022 is only an example)
+1. once you have the correct year pipe the list_arks output to a manifest file (2022 is only an example)
    * for staging
      ```bash
-     bundle exec ruby list_arks.rb 2022 > manefest
+     bundle exec ruby list_arks.rb 2022 > manifest
      ```
   * for production 
      ```bash
-     bundle exec ruby list_arks.rb 2022 https://dataspace.princeton.edu > manefest
+     bundle exec ruby list_arks.rb 2022 https://dataspace.princeton.edu > manifest
      ```  
 1. Transfer the manifest to the DataSpace server. (consult RDSS team if you need help with the ssh configuration information)
    * for staging
      ```bash
-     scp manefest pulsys@gcp_dataspace_staging1:.
+     scp manifest pulsys@gcp_dataspace_staging1:.
      ```
    * for prod
      ```bash
-     scp manefest pulsys@gcp_dataspace_prod1:.
+     scp manifest pulsys@gcp_dataspace_prod1:.
      ```
 1. SSH to the appropriate DataSpace server (staging or production).
    1. Become the dpsace user

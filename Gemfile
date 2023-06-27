@@ -6,6 +6,7 @@ gem 'faraday'
 gem 'marc'
 gem 'nokogiri'
 gem 'thor'
+gem 'rubocop'
 
 group :development, :test do
   gem 'bixby'
