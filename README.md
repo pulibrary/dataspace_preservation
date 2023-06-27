@@ -55,14 +55,6 @@ This repository contains scripts and documentation for backing up objects from D
    bundle exec ruby list_arks.rb -h https://dataspace-staging.princeton.edu -a ark:/88435/dsp01sf268516n -c 2019 > manifest
    ```
 1. Transfer the manifest to the DataSpace server. (consult RDSS team if you need help with the ssh configuration information)
-   * for staging
-     ```bash
-     scp manifest pulsys@gcp_dataspace_staging1:.
-     ```
-   * for prod
-     ```bash
-     scp manifest pulsys@gcp_dataspace_prod1:.
-     ```
 1. SSH to the appropriate DataSpace server (staging or production).
    1. Become the dspace user
    1. Create a directory on the server where your exports will be stored temporarily.
