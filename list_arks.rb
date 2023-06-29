@@ -1,39 +1,51 @@
 # frozen_string_literal: true
 
+require 'date'
 require 'faraday'
 require 'fileutils'
 require 'marc'
 require 'nokogiri'
 require 'thor'
 require 'uri'
+require 'optparse'
 
-require 'pry-byebug'
+def fetch_arks(host, ark, class_year)
+  ark = ark.delete_prefix('ark:/')
+  additional_params = class_year == '' ? '' : "?type=graduation&order=DESC&rpp=20&value=#{class_year}"
+  host = "#{host}/handle/#{ark}/browse#{additional_params}"
+  html_table_css_selector = 'html > body > main > div:nth-of-type(2) > div:nth-of-type(2)'
+  td_id = class_year == '' ? 't2' : 't3'
+  response = Faraday.get(host.to_s)
+  raise(ArgumentError, "Failed to receive a response from the DSpace URI: #{query_uri}") unless response.success?
 
+  response_document = Nokogiri::HTML.parse(response.body)
+  search_table = response_document.at_css(html_table_css_selector)
 
-def fetch_arks(class_year, host)
-    host = "#{host}/handle/88435/dsp019c67wm88m/browse?type=graduation&order=DESC&rpp=20&value=#{class_year}"
-    html_table_css_selector = 'html > body > main > div:nth-of-type(2) > div:nth-of-type(3) > table'
-    response = Faraday.get(host.to_s)
-    unless response.success?
-        raise(ArgumentError,
-              "Failed to receive a response from the DSpace URI: #{query_uri}")
-    end
-    response_document = Nokogiri::HTML.parse(response.body)
-    search_table = response_document.at_css(html_table_css_selector)
+  search_table_rows = search_table.css('tr')
+  search_result_rows = search_table_rows[1..]
+  search_result_rows.each do |tr|
+    td_element = tr.at_css("td[headers='#{td_id}']")
+    handle_element = td_element.at_css('a')
+    handle = handle_element['href'].gsub('/handle/', '')
+    puts handle
+  end
+end
 
-    search_table_rows = search_table.css('tr')
-    search_result_rows = search_table_rows[1..]
+options = {}
+OptionParser.new do |opts|
+  opts.banner = 'Usage: list_arks.rb [options]'
+  opts.on('-h', '--host', 'Host URL') do |h|
+    options[:host] = h
+  end
+  opts.on('-c', '--classyear', 'Class year') do |c|
+    options[:classyear] = c
+  end
+  opts.on('-h', '--host HOST', String, 'Host URL') { |h| options[:host] = h }
+  opts.on('-a', '--ark ARK', String, 'Collection ark') { |a| options[:ark] = a }
+  opts.on('-c', '--classyear YEAR', Integer, 'Class year') { |c| options[:classyear] = c }
+end.parse!
 
-    search_result_rows.each do |tr|
-        td_element = tr.at_css("td[headers='t3']")
-
-        handle_element = td_element.at_css('a')
-        handle = handle_element['href'].gsub('/handle/', '')
-
-        puts handle
-    end 
-end 
-
-class_year = ARGV[0].to_i
-host = ARGV[1] || "https://dataspace-staging.princeton.edu"
-fetch_arks(class_year, host)
+host = options[:host] || 'https://dataspace-staging.princeton.edu'
+ark = options[:ark] || 'ark:/88435/dsp01zw12z7787'
+class_year = options[:classyear] || ''
+fetch_arks(host, ark, class_year)
