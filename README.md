@@ -24,7 +24,7 @@ This repository contains scripts and documentation for backing up objects from D
 1. Install gems via bundler `bundle install`
 1. If you are backing up a collection that is not under the Senior Theses community, run `list_arks.rb` as follows to output a list of arks that can be used to create a manifest as follows (arguments supplied are examples):
    ```bash 
-   bundle exec ruby list_arks.rb -h https://dataspace-staging.princeton.edu -a ark:/88435/dsp01zw12z7787
+   bundle exec ruby list_arks.rb -h https://dataspace-staging.princeton.edu -a ark:/88435/dsp0100000007x
    ```
     You should see output something like the following: 
     ```bash 
@@ -33,7 +33,7 @@ This repository contains scripts and documentation for backing up objects from D
     ```
 1. If you are backing up Senior Theses, run `list_arks.rb` and supply a class year as a command line argument, to output a list of arks that can be used to create a manifest as follows (arguments supplied are examples):
    ```bash 
-   bundle exec ruby list_arks.rb -h https://dataspace-staging.princeton.edu -a ark:/88435/dsp01sf268516n -c 2019
+   bundle exec ruby list_arks.rb -h https://dataspace-staging.princeton.edu -a ark:/88435/dsp0100000007x -c 2019
    ```
     You should see output something like the following: 
     ```bash 
@@ -46,13 +46,13 @@ This repository contains scripts and documentation for backing up objects from D
     ```
 1. Pipe the list_arks output to a manifest file, examples:
    ```bash 
-   bundle exec ruby list_arks.rb -h https://dataspace-staging.princeton.edu -a ark:/88435/dsp01zw12z7787 > manifest
+   bundle exec ruby list_arks.rb -h https://dataspace-staging.princeton.edu -a ark:/88435/dsp0100000007x > manifest
    ```
 
    or 
 
    ```bash 
-   bundle exec ruby list_arks.rb -h https://dataspace-staging.princeton.edu -a ark:/88435/dsp01sf268516n -c 2019 > manifest
+   bundle exec ruby list_arks.rb -h https://dataspace-staging.princeton.edu -a ark:/88435/dsp0100000007x -c 2019 > manifest
    ```
 1. Transfer the manifest to the DataSpace server. (consult RDSS team if you need help with the ssh configuration information)
 1. SSH to the appropriate DataSpace server (staging or production).
