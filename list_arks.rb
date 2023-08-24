@@ -20,7 +20,7 @@ def fetch_arks(host, ark, class_year)
   response = paginate_response(host, additional_params, offset)
 
   while response != '' 
-    html_table_css_selector = 'html > body > main > div:nth-of-type(2) > div:nth-of-type(2)'
+    html_table_css_selector = 'html > body > main > div:nth-of-type(2) > div > table'
     td_id = class_year == '' ? 't2' : 't3'
     response_document = Nokogiri::HTML.parse(response.body)
     search_table = response_document.at_css(html_table_css_selector)
@@ -39,7 +39,7 @@ end
 
 def paginate_response(url, additional_params, offset) 
   stop_phrase = "No Entries in Index"
-  url = additional_params == '' ? "#{url}?offset=#{num}" : "#{url}#{additional_params}&offset=#{offset}"
+  url = additional_params == '' ? "#{url}?offset=#{offset}" : "#{url}#{additional_params}&offset=#{offset}"
   response = Faraday.get(url.to_s)
   raise(ArgumentError, "Failed to receive a response from the DSpace URI: #{url}") unless response.success?
   response.body.to_s.include?(stop_phrase) ? '' : response
