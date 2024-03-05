@@ -60,7 +60,7 @@ This repository contains scripts and documentation for backing up objects from D
    1. Create a directory on the server where your exports will be stored temporarily.
    1. get the export from dataspace script
       ```bash
-      wget https://github.com/pulibrary/dataspace_preservation/blob/main/export_from_dspace.sh
+      wget https://raw.githubusercontent.com/pulibrary/dataspace_preservation/main/export_from_dspace.sh
       ```
    1. run it with the manifest and exports directory as command line arguments, example:
       ```bash 
