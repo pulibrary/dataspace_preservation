@@ -1,0 +1,128 @@
+{
+  "lockfile_version": "1",
+  "packages": {
+    "bundler@latest": {
+      "last_modified": "2026-10-02T22:55:44Z",
+      "resolved": "github:NixOS/nixpkgs/55ba7f49ef2962b42cbd126522b7df5f95037679#bundler",
+      "source": "devbox-search",
+      "version": "2.7.2",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/k3rrgkbpgyk4zwmyrij1gwkq0imily54-bundler-2.7.2",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/k3rrgkbpgyk4zwmyrij1gwkq0imily54-bundler-2.7.2"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/kkakqd1alc1dv4fgsv8jv9g1j846ya92-bundler-2.7.2",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/kkakqd1alc1dv4fgsv8jv9g1j846ya92-bundler-2.7.2"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/ww85ffrswh2lmmg7fi7jngx34mg5hp5v-bundler-2.7.2",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/ww85ffrswh2lmmg7fi7jngx34mg5hp5v-bundler-2.7.2"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/85byxy4gxnyhmbjc45avxsihgd2s5hq2-bundler-2.7.2",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/85byxy4gxnyhmbjc45avxsihgd2s5hq2-bundler-2.7.2"
+        }
+      }
+    },
+    "github:NixOS/nixpkgs/nixpkgs-unstable": {
+      "last_modified": "2026-11-04T21:12:09Z",
+      "resolved": "github:NixOS/nixpkgs/6dadaf4375be35033e1c84395adbd53ff5fded96?lastModified=1793826729&narHash=sha256-D5H7H%2BqMoTGI%2FjJtxKP4u7BdjkFnUyhOovTrf3pTOr0%3D"
+    },
+    "ruby@3.4.8": {
+      "last_modified": "2026-04-16T08:46:55Z",
+      "plugin_version": "0.0.2",
+      "resolved": "github:NixOS/nixpkgs/b86751bc4085f48661017fa226dee99fab6c651b#ruby",
+      "source": "devbox-search",
+      "version": "3.4.8",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/88sazm3fj9kabg4pxmnjc53cx0syp8fk-ruby-3.4.8",
+              "default": true
+            },
+            {
+              "name": "devdoc",
+              "path": "/nix/store/mk7a50jsk138apqrnlzc077cik8cr47m-ruby-3.4.8-devdoc"
+            }
+          ],
+          "store_path": "/nix/store/88sazm3fj9kabg4pxmnjc53cx0syp8fk-ruby-3.4.8"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/rpcpk0lxd8iliza4nl9apsgrpsb2yk4d-ruby-3.4.8",
+              "default": true
+            },
+            {
+              "name": "devdoc",
+              "path": "/nix/store/9wnq7dd2yw2lbjs69y19lm08ranqa930-ruby-3.4.8-devdoc"
+            }
+          ],
+          "store_path": "/nix/store/rpcpk0lxd8iliza4nl9apsgrpsb2yk4d-ruby-3.4.8"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/gq0vdqfz16vf64ip8p749rmygxd7n3x1-ruby-3.4.8",
+              "default": true
+            },
+            {
+              "name": "devdoc",
+              "path": "/nix/store/k3yn26wvgk4mfrd5nw4a23wnijd9hz6c-ruby-3.4.8-devdoc"
+            }
+          ],
+          "store_path": "/nix/store/gq0vdqfz16vf64ip8p749rmygxd7n3x1-ruby-3.4.8"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/s57rf37r1i38kpm3nlv4h8f8z2w2n80d-ruby-3.4.8",
+              "default": true
+            },
+            {
+              "name": "devdoc",
+              "path": "/nix/store/4k6c15chplw6cicc6f3lgzmi7i4792j6-ruby-3.4.8-devdoc"
+            }
+          ],
+          "store_path": "/nix/store/s57rf37r1i38kpm3nlv4h8f8z2w2n80d-ruby-3.4.8"
+        }
+      }
+    },
+    "yarn@1.22.10": {
+      "last_modified": "2021-08-01T02:58:48Z",
+      "resolved": "github:NixOS/nixpkgs/404cd360c2607bcfe8d05a7d5ae609d6605f7e22#yarn",
+      "source": "devbox-search",
+      "version": "1.22.10"
+    }
+  }
+}
